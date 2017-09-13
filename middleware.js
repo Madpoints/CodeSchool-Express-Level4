@@ -80,6 +80,12 @@ app.post('/blocks/', parseUrlencoded, function(request, response) {
     response.status(201).json(newBlock.name);
 });
 
+// DELETE route
+app.delete('/blocks/:name', function(request, response) {
+   delete blocks[request.blockName];
+   response.sendStatus(200);
+});
+
 app.listen(process.env.PORT, function() {
     console.log(process.env.PORT);
 });
